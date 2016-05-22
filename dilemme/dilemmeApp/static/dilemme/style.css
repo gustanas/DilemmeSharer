@@ -1,0 +1,74 @@
+@import 'normalize';
+
+h1 {
+	color: #333333;
+    text-align:center;
+    margin: 50 10 10 10;
+}
+
+body {
+    background-color: #FAFAFA;
+}
+
+#dilemmes{
+    text-align:center;
+}
+
+.atvImg {
+    width: 18vw;
+    height: 25vw;
+
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-right: 20px;
+    padding-left: 20px; 
+}
+
+.wrapper {
+    margin: auto;
+    width: 90%;
+}
+
+.sender_picture {
+    height: 140px;
+    width: 140px;
+    display: block;
+    border-radius: 50%;
+    margin: 50px auto 0px;
+}
+
+.description {
+    text-align: center;
+    margin: auto;
+}
+
+
+.dilemme_wrapper{
+    display: inline-flex;
+}
+
+
+.dilemme_picture {
+    width: 300px
+    height: auto;
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
+.button_wrapper {
+    text-align: center;
+    margin: auto;
+}
+
+.vote_button {
+    display: inline-block;
+    border: none;
+    /*background: none;*/
+    width: 75px;
+    height: 75px;
+}
+
+.like_button {
+    height: 85px;
+}

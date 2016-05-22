@@ -1,0 +1,120 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dilemme - No shopping dilemma</title>
+  <link rel="stylesheet" type="text/css" href="{% static 'dilemme/style.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static 'dilemme/atvImg.css' %}" />
+</head>
+
+<body>
+
+<div class="wrapper">
+
+  <img class="sender_picture" src="{{ sender.picture_url }}"> 
+  
+  <div class="description">
+    <p>
+      {{sender.first_name}} asks: <br>
+      "{{description}}"
+    </p>
+
+  </div>
+  
+  <div id="dilemmes">
+      {% if isSingleDilemme %}
+      <div class="atvImg">
+        <img src="{{ pictures.0.url }}">
+        <div class="atvImg-layer" data-img="{{ pictures.0.url }}"></div>
+        <div class="atvImg-layer" data-img="{{ pictures.0.url }}"></div>
+      </div>
+      
+      <div class="button_wrapper">
+        <form action="">
+          <input type="image" src="{% static 'dilemme/images/dislike_button.png' %}" alt="Submit" class="like_button">
+          <input type="image" src="{% static 'dilemme/images/like_button.png' %}" alt="Submit" class="like_button">
+        </form>
+      </div>
+
+      {% else %}
+      <div class="dilemme_wrapper">
+
+      <div class="single_dilemme_wrapper">
+        <div class="atvImg">
+          <img src="{{ pictures.0.url }}">
+          <div class="atvImg-layer" data-img="{{ pictures.0.url }}"></div>
+          <div class="atvImg-layer" data-img="{{ pictures.0.url }}"></div>
+        </div>
+        <div class="button_wrapper">
+        <form action="">
+          <input type="image" src="{% static 'dilemme/images/like_button.png' %}" alt="Submit" class="like_button">
+        </form>
+        </div>
+      </div>
+
+      <div class="single_dilemme_wrapper">
+        <div class="atvImg">
+          <img src="{{ pictures.1.url }}">
+          <div class="atvImg-layer" data-img="{{ pictures.1.url }}"></div>
+          <div class="atvImg-layer" data-img="{{ pictures.1.url }}"></div>
+        </div>
+        <div class="button_wrapper">
+        <form action="">
+          <input type="image" src="{% static 'dilemme/images/like_button.png' %}" alt="Submit" class="like_button">
+        </form>
+        </div>
+      </div>
+
+      </div>
+      {% endif %}
+  </div>
+
+  <!--<div class="button_wrapper">
+    <form action="">
+    {% if isSingleDilemme %}
+      <input type="image" src="{% static 'dilemme/images/dislike_button.png' %}" alt="Submit" class="like_button">
+      <input type="image" src="{% static 'dilemme/images/like_button.png' %}" alt="Submit" class="like_button">
+    {% else %}
+      <input type="image" src="{% static 'dilemme/images/like_button.png' %}" alt="Submit" class="like_button">
+      <input type="image" src="{% static 'dilemme/images/like_button.png' %}" alt="Submit" class="like_button">
+    {% endif %}
+    </form>
+  </div>-->
+
+<p>
+   <ul>
+   {% if user and not user.is_anonymous %}
+     <li>
+       <a>Hello {{ user.get_full_name|default:user.username }}!</a>
+     </li>
+     <li>
+       <a href="{% url 'auth:logout' %}?next={{ request.path }}">Logout</a>
+     </li>
+   {% else %}
+     <li>
+       <a href="{% url 'social:begin' 'facebook' %}?next={{ request.path }}">Login with Facebook</a>
+     </li>
+     <li>
+       <a href="{% url 'social:begin' 'google-oauth2' %}?next={{ request.path }}">Login with Google</a>
+     </li>
+     <li>
+       <a href="{% url 'social:begin' 'twitter' %}?next={{ request.path }}">Login with Twitter</a>
+     </li>
+   {% endif %}
+   </ul>
+ </p> 
+</div>
+
+
+
+
+
+
+<script src="{% static 'dilemme/atvImg.js' %}"></script>
+<script src="{% static 'dilemme/home.js' %}"></script>
+
+</body>
+</html>
+
+
