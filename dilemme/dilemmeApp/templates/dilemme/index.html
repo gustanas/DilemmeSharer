@@ -6,6 +6,8 @@
   <title>Dilemme - No shopping dilemma</title>
   <link rel="stylesheet" type="text/css" href="{% static 'dilemme/style.css' %}" />
   <link rel="stylesheet" type="text/css" href="{% static 'dilemme/atvImg.css' %}" />
+
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600italic' rel='stylesheet' type='text/css'>
 </head>
 
 <body>
@@ -14,13 +16,23 @@
 
   <img class="sender_picture" src="{{ sender.picture_url }}"> 
   
-  <div class="description">
+  
     <p>
-      {{sender.first_name}} asks: <br>
-      "{{description}}"
+      <div class="user_name">
+        {{sender.first_name}} 
+        {% if description %}
+        asks: <br>
+        {% endif %}
+      </div>
+      
+      {% if description %}
+      <div class="description">
+        "{{description}}"
+      </div>
+      {% endif %}
     </p>
 
-  </div>
+  
   
   <div id="dilemmes">
       {% if isSingleDilemme %}

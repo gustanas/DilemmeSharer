@@ -38,9 +38,22 @@ body {
     margin: 50px auto 0px;
 }
 
-.description {
+.user_name {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.3em;
+    color: #4B4F54;
     text-align: center;
-    margin: auto;
+    margin: 30px auto;
+}
+
+.description {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.4em;
+    font-weight: 600;
+    color: #206385;
+    font-style:italic;
+    text-align: center;
+    margin: 25px auto;
 }
 
 
